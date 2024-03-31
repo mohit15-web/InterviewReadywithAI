@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/icon.png" type="image/x-icon">
+
+    <title>Resume Builder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="flex justify-between items-center py-5 px-20 bg-gray-100">
+        <div class="flex justify-center items-center gap-1">
+            <img src="./images/icon.png" alt="" class="w-10 h-10 mt-2 object-contain">
+            <h1 class="text-2xl sm:text-4xl " style="color: #2DC18C;">Enhancv</h1>
+        </div>
+
+
+        <div>
+            <i class="fa-solid fa-bars text-black text-3xl"></i>
+        </div>
+    </header>
+    <!-- <hr class="mt-7"> -->
+
+    <div class="w-full">
+        <div class="input-container w-9/12 m-auto mt-10">
+            <!-- ABOUT SECTION -->
+
+            <h1 class="text-white p-2 text-xl font-bold mb-4" style="background-color: #2DC18C;">ABOUT SECTION</h1>
+            <div class="w-full p-2 border border-gray-300 flex flex-col gap-10 p-10">
+                <div class="flex flex-col gap-10 lg:flex-row">
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">First Name</label>
+                        <input id="firstName" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80"
+                            placeholder="e.g. John">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Middle Name</label>
+                        <input id="middleName" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80"
+                            placeholder="e.g. Herbert">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Last Name</label>
+                        <input id="lastName" type="text"
+                            class=" p-2 mt-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-80"
+                            placeholder="e.g. Doe">
+                    </div>
+                </div>
+                <div class="flex flex-col gap-10 lg:flex-row">
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Your Image</label>
+                        <input type="file" id="imageInput"
+                            class=" p-2 border border-gray-300 rounded mt-2 focus:outline-none focus:border-blue-500 w-78 sm:w-96 lg:w-80">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Designation</label>
+                        <input id="designation" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80"
+                            placeholder="e.g. Accountant">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Address</label>
+                        <input id="address" type="text"
+                            class="p-2 mt-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-80"
+                            placeholder="e.g. Lake Street-23">
+                    </div>
+                </div>
+                <div class="flex flex-col gap-10 lg:flex-row">
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold mb-2">Email</label>
+                        <input id="email" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80"
+                            placeholder="e.g. JohnDoe@gmail.com">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Phone No.</label>
+                        <input id="phone" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80"
+                            placeholder="e.g. 456-768-234">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Summary</label>
+                        <input id="summary" type="text"
+                            class="p-2 mt-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-80" placeholder="e.g. Doe">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACHIEVEMENTS -->
+            <h1 class="text-white p-2 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">ACHIEVEMENTS</h1>
+            <div class="w-full p-2 border border-gray-300 flex flex-col gap-10 p-10">
+                <div class="flex flex-col gap-10 lg:flex-row">
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Title</label>
+                        <input id="achievementTitle" type="text"
+                            class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Description</label>
+                        <input id="achievementDescription" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- EXPERIENCE -->
+
+            <h1 class="text-white p-2 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">EXPERIENCE</h1>
+            <div class="w-full p-2 border border-gray-300 flex flex-col gap-10 p-10">
+                <div class="flex flex-col gap-10 lg:flex-row">
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Title</label>
+                        <input id="achievementTitle" type="text"
+                            class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Company/Organization</label>
+                        <input id="achievementDescription" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Location</label>
+                        <input id="achievementDescription" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-10 lg:flex-row">
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Start Date</label>
+                        <input id="startDate" type="date"
+                            class="p-2 border border-gray-300 rounded mt-2 focus:outline-none focus:border-blue-500 w-78 sm:w-96 lg:w-80">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">End Date</label>
+                        <input id="endDate" type="text"
+                            class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80"
+                            placeholder="e.g. Accountant">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Description</label>
+                        <input id="experienceDescription" type="text"
+                            class="p-2 mt-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-80"
+                            placeholder="e.g. Lake Street-23">
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECTS -->
+
+            <h1 class="text-white p-2 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">PROJECTS</h1>
+            <div class="w-full p-2 border border-gray-300 flex flex-col p-10 gap-10">
+                <div class="flex flex-col gap-10 lg:flex-row">
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Project Name</label>
+                        <input id="projectName" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Project link</label>
+                        <input id="projectLink" type="text"
+                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold">Description</label>
+                        <input id="projectDescription" type="text"
+                            class="p-2 mt-2 border border-gray-300 rounded  w-78 sm:w-96 lg:w-80">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- SKILLS -->
+
+            <h1 class="text-white p-2 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">SKILLS</h1>
+            <div class="w-full p-2 border border-gray-300 flex flex-col gap-10 p-10">
+                <div class="flex">
+                    <div class="flex flex-col">
+                        <label class="text-black font-bold mb-2">Skill</label>
+                        <input id="projectName" type="text"
+                            class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div id="rightContent" class="w-9/12 m-auto flex border border-gray-300 rounded mt-20 mb-20">
+            <div class="text-white w-96 bg-green-900 p-4 flex flex-col justify-center items-center">
+                <div id="rightImage" class="w-32 h-32 mt-10 mb-10 bg-green-900 rounded"
+                    style="border-bottom: 1px solid white;">
+                </div>
+                <p id="AboutText" class="text-white text-xl"></p>
+                <h1 class="text-3xl font-bold">About</h1>
+                <h1 class="text-3xl font-bold mt-7">Skills</h1>
+            </div>
+            <div class="w-full text-black px-10 py-5">
+                <h1 class="text-2xl font-bold">ACHIEVEMENTS</h1>
+                <hr style="border: 1px solid rgba(128, 128, 128, 0.597)" class="mt-2">
+                <p id="AchieText" class=" text-xl mb-10"></p>
+
+
+
+                <h1 class="text-2xl font-bold">EDUCATIONS</h1>
+                <hr style="border: 1px solid rgba(128, 128, 128, 0.597)" class="mt-2">
+                <p id="EducaText" class="text-xl mb-10"></p>
+
+
+                <h1 class="text-2xl font-bold">EXPERIENCES</h1>
+                <hr style="border: 1px solid rgba(128, 128, 128, 0.597)" class="mt-2">
+                <p id="ExperiText" class=" text-xl mb-10"></p>
+
+
+
+                <h1 class="text-2xl font-bold">PROJECTS</h1>
+                <hr style="border: 1px solid rgba(128, 128, 128, 0.597)" class="mt-2">
+                <p id="ProjeText" class="text-xl mb-10"></p>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="mt-4 flex justify-center mb-20">
+        <button id="printBtn" class="mr-4 px-4 py-2 bg-blue-500 text-white rounded">Print</button>
+        <button id="downloadBtn" class="px-4 py-2 bg-green-500 text-white rounded">Download PDF</button>
+    </div>
+
+
+
+    <script src="./buildResume.js">
+
+    </script>
+
+</body>
+
+</html>
