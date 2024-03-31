@@ -1,270 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./images/icon.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/icon.png" type="image/x-icon" />
     <title>Resume Builder</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mirza:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mirza:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
     <style>
-        body {
-            font-family: "Mirza", serif;
-            font-weight: 400;
-            font-style: normal;
-        }
+      body {
+        font-family: "Mirza", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
 
-        .text-gradient {
-            font-size: 72px;
-            background: -webkit-linear-gradient(rgb(197, 33, 233), rgb(36, 34, 36));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+      .text-gradient {
+        font-size: 72px;
+        background: -webkit-linear-gradient(rgb(197, 33, 233), rgb(36, 34, 36));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
-        .text-gradientBtn {
-            /* font-size: 72px; */
-            background: -webkit-linear-gradient(rgb(177, 85, 197), rgb(123, 52, 123));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+      .text-gradientBtn {
+        /* font-size: 72px; */
+        background: -webkit-linear-gradient(
+          rgb(177, 85, 197),
+          rgb(123, 52, 123)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
-        .home-slider {
-            width: 100%;
-            margin: auto;
-            display: flex;
-            align-items: center;
-        }
+      .home-slider {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+      }
 
-        .home-slider .card {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            width: 300px;
-            margin: 1rem;
-            padding: 1rem 0;
-            /* border: 2px solid #29f4d4; */
-        }
+      .home-slider .card {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 300px;
+        margin: 1rem;
+        padding: 1rem 0;
+        border: none;
+        /* border: 2px solid #29f4d4; */
+      }
 
-        .main-carousel3 {
-            width: 100%;
-            height: 300px;
-        }
+      .main-carousel3 {
+        width: 100%;
+        height: 300px;
+      }
 
-        .main-carousel3 img {
-            width: 250px;
-            height: 350px;
-            border-radius: 10px;
-            box-shadow: 0 0 7px black;
-            object-fit: cover;
-        }
+      .main-carousel3 img {
+        width: 250px;
+        height: 350px;
+        border-radius: 10px;
+        box-shadow: 0 0 7px black;
+        object-fit: cover;
+      }
 
-        /* .main-carousel3 .flickity-prev-next-button {
-            background-color: #3498db;
-            color: #fff;
-        } */
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
+    <header class="flex justify-between items-center py-3 px-10"  style="background-color: #eff2f9">
+      <div class="flex justify-center items-center gap-1">
+        <img
+          src="./images/icon.png"
+          alt=""
+          class="w-10 h-10 mt-2 object-contain"
+        />
+        <h1 class="text-2xl sm:text-4xl" style="color: #2dc18c">ResumeAI</h1>
+      </div>
 
-    <header class="flex justify-between items-center py-3 px-10">
-        <div class="flex justify-center items-center gap-1">
-            <img src="./images/icon.png" alt="" class="w-10 h-10 mt-2 object-contain">
-            <h1 class="text-2xl sm:text-4xl " style="color: #2DC18C;">Enhancv</h1>
-        </div>
+      <div
+        class="text-black text-3xl flex justify-center hidden items-center gap-20 lg:flex"
+      >
+        <a href="#" class="text-black">Resume</a>
+        <a href="#" class="text-black"
+          >Tools <i class="fa-solid fa-chevron-down text-xl"></i
+        ></a>
+        <a href="#" class="text-black"
+          >Blog <i class="fa-solid fa-chevron-down text-xl"></i
+        ></a>
+      </div>
 
-        <div class="text-black text-3xl flex justify-center hidden items-center gap-20 lg:flex ">
-            <a href="#">Resume</a>
-            <a href="#">Tools <i class="fa-solid fa-chevron-down text-xl"></i></a>
-            <a href="#">Blog <i class="fa-solid fa-chevron-down text-xl"></i></a>
-        </div>
+      <div class="flex justify-center items-center gap-5">
+        <button
+        id="LogInBtn"
+          class="hidden sm:block font-bold text-2xl sm:text-3xl py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          style="color: #2dc18c"
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#SignIn"
+        >
+          Log In
+        </button>
 
-        <div class="flex justify-center items-center gap-5">
-
-            <button
-                class="hidden sm:block font-bold text-2xl sm:text-3xl py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                style="color: #2DC18C;">
-                Log In</button>
-
-            <button
-                class="font-bold text-white text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                style="background-color: #2DC18C;">
-                Sign In</button>
-        </div>
+        <button
+        id="SignUpBtn"
+          class="font-bold text-white text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          style="background-color: #2dc18c"
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#SignUp"
+        >
+          Sign Up
+        </button>
+      </div>
     </header>
 
-    <main style="background-color: #EFF2F9;">
-        <div class="w-1/2 pl-24 pt-20">
-            <h1 class="text-7xl text-black">Enhancv’s <span class="text-gradient">Resume Builder</span> helps you get
-                hired at top
-                companies</h1>
-            <div class="flex items-center gap-5 pt-10">
+    <main>
+      <div class="w-1/2 pl-24 pt-20">
+        <h1 class="text-7xl text-black">
+          Enhancv’s <span class="text-gradient">Resume Builder</span> helps you
+          get hired at top companies
+        </h1>
+        <div class="flex items-center gap-5 pt-10">
+          <button
+            class="font-bold text-white text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            style="background-color: #2dc18c"
+            onclick="clickSignUpButton()"
+          >
+            Build Your Resume
+          </button>
 
-                <button
-                    class="font-bold text-white text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    style="background-color: #2DC18C;" onclick="location.href='./buildResume.html'">
-                    Build Your Resume</button>
-
-                <button
-                    class="text-gradientBtn hidden sm:block font-bold text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    style="border: 2px solid #3317b09e;">
-                    Get Your Resume Score</button>
-
-            </div>
-
-            <div>
-                <h1 class="text-3xl pt-10 font-bold ">Subscribers have been hired by:</h1>
-                <div class="flex items-center gap-6 py-5">
-                    <img src="./images/tesla.webp" alt="tesla" class="h-4 w-16">
-                    <img src="./images/fb.webp" alt="fb" class="h-5 w-16">
-                    <img src="./images/google.webp" alt="google" class="h-5 w-16">
-                    <img src="./images/spotify.webp" alt="spotify" class="h-5 w-16">
-
-                    <img src="./images/amazon.webp" alt="amazon" class="h-5 w-16">
-                </div>
-            </div>
+          <button
+            class="text-gradientBtn hidden sm:block font-bold text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            style="border: 2px solid #3317b09e"
+          >
+            Get Your Resume Score
+          </button>
         </div>
 
+        <div>
+          <h1 class="text-3xl pt-10 font-bold">
+            Subscribers have been hired by:
+          </h1>
+          <div class="flex items-center gap-6 py-3">
+            <img src="./images/tesla.webp" alt="tesla" class="h-4 w-16" />
+            <img src="./images/fb.webp" alt="fb" class="h-5 w-16" />
+            <img src="./images/google.webp" alt="google" class="h-5 w-16" />
+            <img src="./images/spotify.webp" alt="spotify" class="h-5 w-16" />
 
+            <img src="./images/amazon.webp" alt="amazon" class="h-5 w-16" />
+          </div>
+        </div>
+      </div>
 
-
-
-        <!-- <h1>Pick a resume template and build your resume in minutes!</h1> -->
+      <h1 class="text-3xl font-bold pt-10 pb-4 ml-24">Pick a resume template and build your resume <br>in minutes!</h1>
     </main>
 
-
-
-
     <!-- slider -->
-    <div class="home-slider w-full" style="background-color: #EFF2F9;">
-        <div class="main-carousel3" id="slider"
-            data-flickity='{ "freeScroll": true,"pageDots": false, "wrapAround": true, "autoPlay":1000, "prevNextButtons": false, "contain": true, "friction": 0.2, "selectedAttraction": 0.01}'>
-
-            <div class="card">
-                <img src="./images/resume1.png" alt="">
-            </div>
-            <div class="card">
-                <img src="./images/resume2.png" alt="">
-            </div>
-            <div class="card">
-                <img src="./images/resume3.png" alt="">
-
-            </div>
-            <div class="card">
-                <img src="./images/resume4.png" alt="">
-            </div>
-            <div class="card">
-                <img src="./images/resume5.png" alt="">
-            </div>
-            <div class="card">
-                <img src="./images/resume6.png" alt="">
-
-            </div>
-            <div class="card">
-                <img src="./images/resume7.png" alt="">
-            </div>
+    <div class="home-slider w-full">
+      <div
+        class="main-carousel3"
+        id="slider"
+        data-flickity='{ "freeScroll": true,"pageDots": false, "wrapAround": true, "autoPlay":1000, "prevNextButtons": false, "contain": true, "friction": 0.2, "selectedAttraction": 0.01}'
+      >
+        <div class="card">
+          <img src="./images/resume1.png" alt="" />
         </div>
+        <div class="card">
+          <img src="./images/resume2.png" alt="" />
+        </div>
+        <div class="card">
+          <img src="./images/resume3.png" alt="" />
+        </div>
+        <div class="card">
+          <img src="./images/resume4.png" alt="" />
+        </div>
+        <div class="card">
+          <img src="./images/resume5.png" alt="" />
+        </div>
+        <div class="card">
+          <img src="./images/resume6.png" alt="" />
+        </div>
+        <div class="card">
+          <img src="./images/resume7.png" alt="" />
+        </div>
+      </div>
     </div>
-
 
     <!-- footer  -->
     <footer id="contactUs" class="bg-gray-900 py-12 mt-40">
-        <div class="container mx-auto px-4">
-            <div class="useful-links flex flex-wrap justify-between gap-6 md:gap-20">
-                <div class="social-media">
-                    <div class="flex items-center gap-1">
-                        <img src="./images/icon.png" alt="" class="w-10 h-10 mt-2 object-contain">
-                        <h1 class="text-2xl sm:text-4xl " style="color: #2DC18C;">Enhancv</h1>
-                    </div>
-                    <p class="text-gray-300 max-w-sm mb-6">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae quam nec ante fringilla vel
-                        at erat convallis elit.
-                    </p>
-                    <div class="media flex gap-2">
-                        <a href="#"
-                            class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500">
-                            <i class="fab fa-facebook-f text-white"></i>
-                        </a>
-                        <a href="#"
-                            class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500">
-                            <i class="fab fa-twitter text-white"></i>
-                        </a>
-                        <a href="#"
-                            class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500">
-                            <i class="fab fa-linkedin-in text-white"></i>
-                        </a>
-                        <a href="#"
-                            class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500">
-                            <i class="fab fa-youtube text-white"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="list">
-                    <h3 class="text-white text-lg mb-6">Quick Links</h3>
-                    <ul>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">what is ico</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">roadmap</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">whitepaper</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">social network</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">join us now</a></li>
-                    </ul>
-                </div>
-                <div class="list">
-                    <h3 class="text-white text-lg mb-6">Supports</h3>
-                    <ul>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">setting & privacy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">help and support</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">terms & conditions</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">24/7 support</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-500">on point faq</a></li>
-                    </ul>
-                </div>
-                <div class="list">
-                    <h3 class="text-white text-lg mb-6">News & Post</h3>
-                    <div class="info flex gap-6 mb-6">
-                        <div class="image w-20 h-20 overflow-hidden rounded-md">
-                            <img src="./images/footer (2).png" alt="">
-                        </div>
-                        <div class="details flex-1">
-                            <h4 class="text-gray-400 text-lg mb-1 cursor-pointer hover:text-blue-500">Roll Out New
-                                Features Without
-                                Hurting Loyal Users</h4>
-                            <h5 class="text-gray-400 text-sm flex items-center gap-1">
-                                <i class="fas fa-calendar text-gray-400"></i>
-                                Mar 28, 2024
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="info flex gap-6">
-                        <div class="image w-20 h-20 overflow-hidden rounded-md">
-                            <img src="./images/footer (1).png" alt="">
-                        </div>
-                        <div class="details flex-1">
-                            <h4 class="text-gray-400 text-lg mb-1 cursor-pointer hover:text-blue-500">Top 10 Best
-                                Cryptocurrency Blogs
-                                and Websites</h4>
-                            <h5 class="text-gray-400 text-sm flex items-center gap-1">
-                                <i class="fas fa-calendar text-gray-400"></i>
-                                Mar 28, 2024
-                            </h5>
-                        </div>
-                    </div>
-                </div>
+      <div class="container mx-auto px-4">
+        <div
+          class="useful-links flex flex-wrap justify-between gap-6 md:gap-20"
+        >
+          <div class="social-media">
+            <div class="flex items-center gap-1">
+              <img
+                src="./images/icon.png"
+                alt=""
+                class="w-10 h-10 mt-2 object-contain"
+              />
+              <h1 class="text-2xl sm:text-4xl" style="color: #2dc18c">
+                Enhancv
+              </h1>
             </div>
-
+            <p class="text-gray-300 max-w-sm mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae
+              quam nec ante fringilla vel at erat convallis elit.
+            </p>
+            <div class="media flex gap-2">
+              <a
+                href="#"
+                class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500"
+              >
+                <i class="fab fa-facebook-f text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500"
+              >
+                <i class="fab fa-twitter text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500"
+              >
+                <i class="fab fa-linkedin-in text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500"
+              >
+                <i class="fab fa-youtube text-white"></i>
+              </a>
+            </div>
+          </div>
+          <div class="list">
+            <h3 class="text-white text-lg mb-6">Quick Links</h3>
+            <ul>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >why we need resume</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >roadmap</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >whitepaper</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >social network</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >join us now</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="list">
+            <h3 class="text-white text-lg mb-6">Supports</h3>
+            <ul>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >setting & privacy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >help and support</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >terms & conditions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >24/7 support</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-blue-500"
+                  >on point faq</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="list">
+            <h3 class="text-white text-lg mb-6">News & Post</h3>
+            <div class="info flex gap-6 mb-6">
+              <div class="image w-20 h-20 overflow-hidden rounded-md">
+                <img src="./images/footer (2).png" alt="" />
+              </div>
+              <div class="details flex-1">
+                <h4
+                  class="text-gray-400 text-lg mb-1 cursor-pointer hover:text-blue-500"
+                >
+                  Roll Out New Features Without Hurting Loyal Users
+                </h4>
+                <h5 class="text-gray-400 text-sm flex items-center gap-1">
+                  <i class="fas fa-calendar text-gray-400"></i>
+                  Mar 28, 2024
+                </h5>
+              </div>
+            </div>
+            <div class="info flex gap-6">
+              <div class="image w-20 h-20 overflow-hidden rounded-md">
+                <img src="./images/footer (1).png" alt="" />
+              </div>
+              <div class="details flex-1">
+                <h4
+                  class="text-gray-400 text-lg mb-1 cursor-pointer hover:text-blue-500"
+                >
+                  Top 10 Best Resume Blogs and Websites
+                </h4>
+                <h5 class="text-gray-400 text-sm flex items-center gap-1">
+                  <i class="fas fa-calendar text-gray-400"></i>
+                  Mar 28, 2024
+                </h5>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </footer>
+    <footer>
+      <h1 class="text-black text-3xl py-7 text-center">
+        Created by <span style="color: #2dc18c">Mohit Chaudhary</span> |
+        <i class="fa-regular fa-copyright"></i> 2024 All rights reserved
+      </h1>
     </footer>
 
+    <!-- sign up modal -->
+    <div
+      class="modal fade"
+      id="SignUp"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered flex items-center justify-center flex-col gap-4"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3
+              class="modal-title text-5xl text-center ml-40"
+              id="exampleModalLongTitle"
+              style="color: #2dc18c"
+            >
+              Sign Up
+            </h3>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div
+            class="modal-body flex flex-col gap-4 justify-center items-center"
+          >
+            <div class="flex flex-col">
+              <label for="Email">Email</label>
+              <input
+              id="signUpEmail"
+                type="text"
+                class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64"
+                placeholder="Email"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <label for="Password">Password</label>
+              <input
+              id="signUpPassword"
+                type="password"
+                class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64"
+                placeholder="********"
+              />
+            </div>
+
+            <p>Already have an account?<button style="color: #2dc18c;" onclick="redirectToLogin()">Log in</button></p>
+          </div>
+          <div class="flex justify-center items-center">
+            <button
+              type="button"
+              class="btn btn-primary btn-lg w-64 mb-10"
+              data-dismiss="modal"
+              onclick="signUp()"
+            >
+              Sign Up
+            </button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- log in modal -->
+    <div
+    class="modal fade"
+    id="SignIn"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-dialog modal-dialog-centered flex items-center justify-center flex-col gap-4"
+      role="document"
+    >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3
+            class="modal-title text-5xl text-center ml-40"
+            id="exampleModalLongTitle"
+            style="color: #2dc18c"
+          >
+            Log In
+          </h3>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div
+          class="modal-body flex flex-col gap-4 justify-center items-center"
+        >
+          <div class="flex flex-col">
+            <label for="Email">Email</label>
+            <input
+            id="signInEmail"
+              type="text"
+              class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64"
+              placeholder="Email"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="Password">Password</label>
+            <input
+            id="signInPassword"
+              type="password"
+              class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64"
+              placeholder="********"
+            />
+          </div>
+
+          <p>Need an account?<button style="color: #2dc18c;" onclick="clickSignUpButton()">Sign Up</button></p>
+        </div>
+        <div class="flex justify-center items-center">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg w-64 mb-10"
+            data-dismiss="modal"
+            onclick="login()"
+          >
+            Log in
+          </button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
 
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
-</body>
-
+    <script src="./index.js"></script>
+  </body>
 </html>

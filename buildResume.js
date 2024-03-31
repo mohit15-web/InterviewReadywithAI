@@ -89,3 +89,21 @@ function updateRightImage(event) {
     reader.readAsDataURL(file);
   }
 }
+
+
+// download pdf 
+function generatePDF() {
+        
+  const element = document.getElementById("rightContent");
+  document.getElementById("rightContent").style.display = "block";
+  document.getElementById("rightContent").style.marginTop = "0px"; 
+  document.getElementById("rightContent").style.border = "1px solid black";
+  html2pdf().from(element).save('download.pdf'); 
+  }
+  
+  function downloadCode(){
+  var x = document.getElementById("rightContent");  
+  generatePDF();
+  setTimeout(function() { window.location=window.location;},3000);
+}
+  
