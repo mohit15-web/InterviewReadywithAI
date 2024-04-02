@@ -1,531 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./images/icon.png" type="image/x-icon" />
     <title>Resume Builder</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mirza:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mirza:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
 
     <style>
-      body {
-        font-family: "Mirza", serif;
-        font-weight: 400;
-        font-style: normal;
-      }
+        html{
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Mirza", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-      .text-gradient {
-        font-size: 72px;
-        background: -webkit-linear-gradient(rgb(197, 33, 233), rgb(36, 34, 36));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+        .text-gradient {
+            /* font-size: 72px; */
+            background: -webkit-linear-gradient(rgb(197, 33, 233), rgb(36, 34, 36));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-      .text-gradientBtn {
-        /* font-size: 72px; */
-        background: -webkit-linear-gradient(
-          rgb(177, 85, 197),
-          rgb(123, 52, 123)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+        .text-gradientBtn {
+            /* font-size: 72px; */
+            background: -webkit-linear-gradient(rgb(177, 85, 197),
+                    rgb(123, 52, 123));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-      .home-slider {
-        width: 100%;
-        margin: auto;
-        display: flex;
-        align-items: center;
-      }
+        .home-slider {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
 
-      .home-slider .card {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        width: 300px;
-        margin: 1rem;
-        padding: 1rem 0;
-        border: none;
-        /* border: 2px solid #29f4d4; */
-      }
+        .home-slider .card {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 300px;
+            margin: 1rem;
+            padding: 1rem 0;
+            border: none;
+            background: transparent;
 
-      .main-carousel3 {
-        width: 100%;
-        height: 300px;
-      }
+            /* border: 2px solid #29f4d4; */
+        }
 
-      .main-carousel3 img {
-        width: 250px;
-        height: 350px;
-        border-radius: 10px;
-        box-shadow: 0 0 7px black;
-        object-fit: cover;
-      }
+        .main-carousel3 {
+            width: 100%;
+            height: 300px;
+        }
 
+        .main-carousel3 img {
+            width: 250px;
+            height: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 7px black;
+            object-fit: cover;
+        }
+
+
+
+        .flip-card {
+            margin-top: 5rem;
+            margin-left: 5rem;
+            background-color: transparent;
+            width: 600px;
+            height: 500px;
+            /* border: 1px solid #f1f1f1; */
+            perspective: 1000px;
+            /* Remove this if you don't want the 3D effect */
+        }
+
+        /* This container is needed to position the front and back side */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        /* Do an horizontal flip when you move the mouse over the flip box container */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Position the front and back side */
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            /* Safari */
+            backface-visibility: hidden;
+        }
+
+        /* Style the front side (fallback if image is missing) */
+        .flip-card-front {
+            /* background-color: #bbb; */
+            color: black;
+        }
+
+        /* Style the back side */
+        .flip-card-back {
+            /* background-color: dodgerblue; */
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+
+
+
+        /* $bgWidth: 10000px; */
+        body,
+        .modal{
+            background: linear-gradient(to right, #debed8 0%, #5bdea89b 19%, #e4b6d7 40%, #e3ce9b 60%, #debed8 83%, #91d6b9 100%);
+            background-size: 10000px 100%;
+            animation: bg 15s linear infinite;
+        }
+
+        @keyframes bg {
+            0% {
+                background-position-x: 0;
+            }
+
+            100% {
+                background-position-x: 10000px;
+            }
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-    <header class="flex justify-between items-center py-3 px-10"  style="background-color: #eff2f9">
-      <div class="flex justify-center items-center gap-1">
-        <img
-          src="./images/icon.png"
-          alt=""
-          class="w-10 h-10 mt-2 object-contain"
-        />
-        <h1 class="text-2xl sm:text-4xl" style="color: #2dc18c">ResumeAI</h1>
-      </div>
+<body>
+    <header class="header px-16">
+        <nav class="navbar">
+            <div class="flex justify-center items-center gap-1">
+                <img src="./images/icon.png" alt="" class="w-10 h-10 object-contain" />
+                <h1 class="text-2xl sm:text-4xl" style="color: #2dc18c">ResumeAI</h1>
+            </div>
 
-      <div
-        class="text-black text-3xl flex justify-center hidden items-center gap-20 lg:flex"
-      >
-        <a href="#" class="text-black">Resume</a>
-        <a href="#" class="text-black"
-          >Tools <i class="fa-solid fa-chevron-down text-xl"></i
-        ></a>
-        <a href="#" class="text-black"
-          >Blog <i class="fa-solid fa-chevron-down text-xl"></i
-        ></a>
-      </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="text-black text-3xl">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="text-black text-3xl">Tools <i class="fa-solid fa-chevron-down text-xl"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#blog" class="text-black text-3xl">Blog <i class="fa-solid fa-chevron-down text-xl"></i></a>
+                </li>
+                <li class="nav-item flex">
+                    <button id="LogInBtn"
+                        class="hidden sm:block font-bold text-2xl sm:text-3xl mx-4 py-2 rounded focus:outline-none focus:shadow-outline"
+                        style="color: #2dc18c" type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#SignIn">
+                        Log In
+                    </button>
 
-      <div class="flex justify-center items-center gap-5">
-        <button
-        id="LogInBtn"
-          class="hidden sm:block font-bold text-2xl sm:text-3xl py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          style="color: #2dc18c"
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#SignIn"
-        >
-          Log In
-        </button>
+                    <a href="#"><button id="SignUpBtn" data-toggle="modal" data-target="#SignUp"
+                            class="bn632-hover bn22">Sign Up</button></a>
 
-        <button
-        id="SignUpBtn"
-          class="font-bold text-white text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          style="background-color: #2dc18c"
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#SignUp"
-        >
-          Sign Up
-        </button>
-      </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
     </header>
 
-    <main>
-      <div class="w-1/2 pl-24 pt-20">
-        <h1 class="text-7xl text-black">
-          Enhancv’s <span class="text-gradient">Resume Builder</span> helps you
-          get hired at top companies
+    <main class="flex flex-wrap" id="home">
+        <div class="w-1/2 pl-24 pt-20 sm:w-full sm:pt-10 sm:px-10 lg:w-1/2 lg:pt-20 lg:pl-20 md:w-1/2">
+            <h1 class="text-5xl text-black sm:text-6xl lg:text-7xl">
+                Enhancv’s <span class="text-gradient">Resume Builder</span> helps you
+                get hired at top companies
+            </h1>
+            <div class="flex items-center gap-5 pt-10 sm:justify-center lg:justify-start">
+                <!-- <button
+                    class="font-bold text-white text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    style="background-color: #2dc18c" >
+                    Build Your Resume
+                </button> -->
+
+                <a href="#" class="mohit">
+                    <button class="bn54">
+                        <span class="bn54span" onclick="clickSignUpButton()">Build Your Resume</span>
+                    </button>
+                </a>
+
+                <!-- <button
+                    class="text-gradientBtn hidden sm:block font-bold text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    style="border: 2px solid #3317b09e">
+                    Get Your Resume Score
+                </button> -->
+            </div>
+
+            <div>
+                <h1 class="text-3xl pt-10 font-bold">
+                    Subscribers have been hired by:
+                </h1>
+                <div class="flex items-center flex-wrap gap-6 py-3">
+                    <img src="./images/tesla.webp" alt="tesla" class="h-4 w-16" />
+                    <img src="./images/fb.webp" alt="fb" class="h-5 w-16" />
+                    <img src="./images/google.webp" alt="google" class="h-5 w-16" />
+                    <img src="./images/spotify.webp" alt="spotify" class="h-5 w-16" />
+
+                    <img src="./images/amazon.webp" alt="amazon" class="h-5 w-16" />
+                </div>
+            </div>
+            <h1 class="text-3xl font-bold pt-10 pb-4" id="blog"> Pick a resume template and build your resume <br>in minutes!
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="./images/cardFlip1.webp" alt="Avatar" style="width:500px;height:500px;">
+                </div>
+                <div class="flip-card-back">
+                    <img src="./images/cardFlip3.webp" alt="Avatar" style="width:500px;height:500px;">
+                </div>
+            </div>
+        </div>
+
         </h1>
-        <div class="flex items-center gap-5 pt-10">
-          <button
-            class="font-bold text-white text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            style="background-color: #2dc18c"
-            onclick="clickSignUpButton()"
-          >
-            Build Your Resume
-          </button>
-
-          <button
-            class="text-gradientBtn hidden sm:block font-bold text-2xl sm:text-3xl pb-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            style="border: 2px solid #3317b09e"
-          >
-            Get Your Resume Score
-          </button>
-        </div>
-
-        <div>
-          <h1 class="text-3xl pt-10 font-bold">
-            Subscribers have been hired by:
-          </h1>
-          <div class="flex items-center gap-6 py-3">
-            <img src="./images/tesla.webp" alt="tesla" class="h-4 w-16" />
-            <img src="./images/fb.webp" alt="fb" class="h-5 w-16" />
-            <img src="./images/google.webp" alt="google" class="h-5 w-16" />
-            <img src="./images/spotify.webp" alt="spotify" class="h-5 w-16" />
-
-            <img src="./images/amazon.webp" alt="amazon" class="h-5 w-16" />
-          </div>
-        </div>
-      </div>
-
-      <h1 class="text-3xl font-bold pt-10 pb-4 ml-24">Pick a resume template and build your resume <br>in minutes!</h1>
     </main>
 
     <!-- slider -->
     <div class="home-slider w-full">
-      <div
-        class="main-carousel3"
-        id="slider"
-        data-flickity='{ "freeScroll": true,"pageDots": false, "wrapAround": true, "autoPlay":1000, "prevNextButtons": false, "contain": true, "friction": 0.2, "selectedAttraction": 0.01}'
-      >
-        <div class="card">
-          <img src="./images/resume1.png" alt="" />
+        <div class="main-carousel3" id="slider"
+            data-flickity='{ "freeScroll": true,"pageDots": false, "wrapAround": true, "autoPlay":1000, "prevNextButtons": false, "contain": true, "friction": 0.2, "selectedAttraction": 0.01}'>
+            <div class="card">
+                <img src="./images/resume1.png" alt="" />
+            </div>
+            <div class="card">
+                <img src="./images/resume2.png" alt="" />
+            </div>
+            <div class="card">
+                <img src="./images/resume3.png" alt="" />
+            </div>
+            <div class="card">
+                <img src="./images/resume4.png" alt="" />
+            </div>
+            <div class="card">
+                <img src="./images/resume5.png" alt="" />
+            </div>
+            <div class="card">
+                <img src="./images/resume6.png" alt="" />
+            </div>
+            <div class="card">
+                <img src="./images/resume7.png" alt="" />
+            </div>
         </div>
-        <div class="card">
-          <img src="./images/resume2.png" alt="" />
-        </div>
-        <div class="card">
-          <img src="./images/resume3.png" alt="" />
-        </div>
-        <div class="card">
-          <img src="./images/resume4.png" alt="" />
-        </div>
-        <div class="card">
-          <img src="./images/resume5.png" alt="" />
-        </div>
-        <div class="card">
-          <img src="./images/resume6.png" alt="" />
-        </div>
-        <div class="card">
-          <img src="./images/resume7.png" alt="" />
-        </div>
-      </div>
     </div>
 
-    <!-- footer  -->
-    <footer id="contactUs" class="bg-gray-900 py-12 mt-40">
-      <div class="container mx-auto px-4">
-        <div
-          class="useful-links flex flex-wrap justify-between gap-6 md:gap-20"
-        >
-          <div class="social-media">
-            <div class="flex items-center gap-1">
-              <img
-                src="./images/icon.png"
-                alt=""
-                class="w-10 h-10 mt-2 object-contain"
-              />
-              <h1 class="text-2xl sm:text-4xl" style="color: #2dc18c">
-                Enhancv
-              </h1>
-            </div>
-            <p class="text-gray-300 max-w-sm mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae
-              quam nec ante fringilla vel at erat convallis elit.
-            </p>
-            <div class="media flex gap-2">
-              <a
-                href="#"
-                class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500"
-              >
-                <i class="fab fa-facebook-f text-white"></i>
-              </a>
-              <a
-                href="#"
-                class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500"
-              >
-                <i class="fab fa-twitter text-white"></i>
-              </a>
-              <a
-                href="#"
-                class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500"
-              >
-                <i class="fab fa-linkedin-in text-white"></i>
-              </a>
-              <a
-                href="#"
-                class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500"
-              >
-                <i class="fab fa-youtube text-white"></i>
-              </a>
-            </div>
-          </div>
-          <div class="list">
-            <h3 class="text-white text-lg mb-6">Quick Links</h3>
-            <ul>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >why we need resume</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >roadmap</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >whitepaper</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >social network</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >join us now</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="list">
-            <h3 class="text-white text-lg mb-6">Supports</h3>
-            <ul>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >setting & privacy</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >help and support</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >terms & conditions</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >24/7 support</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-blue-500"
-                  >on point faq</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="list">
-            <h3 class="text-white text-lg mb-6">News & Post</h3>
-            <div class="info flex gap-6 mb-6">
-              <div class="image w-20 h-20 overflow-hidden rounded-md">
-                <img src="./images/footer (2).png" alt="" />
-              </div>
-              <div class="details flex-1">
-                <h4
-                  class="text-gray-400 text-lg mb-1 cursor-pointer hover:text-blue-500"
-                >
-                  Roll Out New Features Without Hurting Loyal Users
-                </h4>
-                <h5 class="text-gray-400 text-sm flex items-center gap-1">
-                  <i class="fas fa-calendar text-gray-400"></i>
-                  Mar 28, 2024
-                </h5>
-              </div>
-            </div>
-            <div class="info flex gap-6">
-              <div class="image w-20 h-20 overflow-hidden rounded-md">
-                <img src="./images/footer (1).png" alt="" />
-              </div>
-              <div class="details flex-1">
-                <h4
-                  class="text-gray-400 text-lg mb-1 cursor-pointer hover:text-blue-500"
-                >
-                  Top 10 Best Resume Blogs and Websites
-                </h4>
-                <h5 class="text-gray-400 text-sm flex items-center gap-1">
-                  <i class="fas fa-calendar text-gray-400"></i>
-                  Mar 28, 2024
-                </h5>
-              </div>
-            </div>
-          </div>
+    <section class="w-2/5 mx-auto mt-40 flex justify-center items-center gap-4 flex-col">
+        <img src="./images/four.svg" alt="">
+        <h1 class="text-6xl font-bold text-center">Why our customers love our resume builder</h1>
+        <p class="text-center text-xl">Resume.io’s online builder tool and collection of elegant, recruiter-tested templates are used by more than 10 million people around the globe! We are incredibly proud to empower so many active professionals.</p>
+        <a href="#home" class="mohit">
+            <button class="bn54">
+                <span class="bn54span">Get Started</span>
+            </button>
+        </a>
+    </section>
+
+
+    <section class="mt-10 flex flex-wrap justify-center gap-10 px-16" >
+        <div class="w-96 p-5">
+            <img src="./images/one.svg" alt="">
+            <h1 class="text-2xl">
+                Powerful and easy-to-use</h1>
+                <p>Created to be suitable for all levels of job seekers. Our host of powerful features ranges from an excellent spell-checker, to job tracking, multi-format export, auto-generated summaries and more.</p>
         </div>
-      </div>
+        <div class="w-96 p-5">
+            <img src="./images/two.svg" alt="">
+            <h1  class="text-2xl">
+                Customization made simple</h1>
+                <p>Fine-tune your resume for a specific job with ease. We help you turn a generic document into a cutting-edge instrument that wins interviews. Transform universal resumes into perfect sales pitches with a few key-strokes.</p>
+        </div>
+        <div class="w-96 pt-5 px-4">
+            <img src="./images/one.svg" alt="">
+            <h1  class="text-2xl">
+                Templates designed by experts</h1>
+                <p>Our designed templates and examples are reviewed by recruiters. This gives you a powerful boost in resume creation, straight from the other side of the job market - the people responsible for hiring and candidate evaluation.</p>
+        </div>
+    </section>
+
+    <!-- footer  -->
+    <footer id="contactUs" class="text-black py-12" style="border: 1px solid black;">
+        <div class="container mx-auto px-4">
+            <div class="useful-links flex flex-wrap justify-between gap-6 md:gap-20">
+                <div class="social-media">
+                    <div class="flex items-center gap-1">
+                        <img src="./images/icon.png" alt="" class="w-10 h-10 mt-2 object-contain" />
+                        <h1 class="text-2xl sm:text-4xl" style="color: #2dc18c">
+                            Enhancv
+                        </h1>
+                    </div>
+                    <p class="text-black text-2xl max-w-sm mb-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae
+                        quam nec ante fringilla vel at erat convallis elit.
+                    </p>
+                    <div class="media flex gap-2">
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-900 hover:bg-blue-500">
+                            <i class="fab fa-youtube text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="list">
+                    <h3 class="text-black text-2xl mb-6">Quick Links</h3>
+                    <ul>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">why we need resume</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">roadmap</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">whitepaper</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">social network</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">join us now</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h3 class="text-text-black text-2xl hover:text-gray-500 mb-6">Supports</h3>
+                    <ul>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">setting & privacy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">help and support</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">terms & conditions</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">24/7 support</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-black text-2xl hover:text-gray-500">on point faq</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="list">
+                    <h3 class="text-black text-2xl mb-6">News & Post</h3>
+                    <div class="info flex gap-6 mb-6">
+                        <div class="image w-20 h-20 overflow-hidden rounded-md">
+                            <img src="./images/footer (2).png" alt="" />
+                        </div>
+                        <div class="details flex-1">
+                            <h4 class="text-black text-2xl mb-1 cursor-pointer hover:text-blue-500">
+                                Roll Out New Features Without Hurting Loyal Users
+                            </h4>
+                            <h5 class="text-black text-xl flex items-center gap-1">
+                                <i class="fas fa-calendar text-black"></i>
+                                Mar 28, 2024
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="info flex gap-6">
+                        <div class="image w-20 h-20 overflow-hidden rounded-md">
+                            <img src="./images/footer (1).png" alt="" />
+                        </div>
+                        <div class="details flex-1">
+                            <h4 class="text-black text-2xl mb-1 cursor-pointer hover:text-blue-500">
+                                Top 10 Best Resume Blogs and Websites
+                            </h4>
+                            <h5 class="text-black text-xl flex items-center gap-1">
+                                <i class="fas fa-calendar text-black"></i>
+                                Mar 28, 2024
+                            </h5>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
     </footer>
     <footer>
-      <h1 class="text-black text-3xl py-7 text-center">
-        Created by <span style="color: #2dc18c">Mohit Chaudhary</span> |
-        <i class="fa-regular fa-copyright"></i> 2024 All rights reserved
-      </h1>
+        <h1 class="text-black text-3xl py-7 text-center">
+            Created by <span style="color: #2dc18c">Mohit Chaudhary</span> |
+            <i class="fa-regular fa-copyright"></i> 2024 All rights reserved
+        </h1>
     </footer>
 
     <!-- sign up modal -->
-    <div
-      class="modal fade"
-      id="SignUp"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div
-        class="modal-dialog modal-dialog-centered flex items-center justify-center flex-col gap-4"
-        role="document"
-      >
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3
-              class="modal-title text-5xl text-center ml-40"
-              id="exampleModalLongTitle"
-              style="color: #2dc18c"
-            >
-              Sign Up
-            </h3>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div
-            class="modal-body flex flex-col gap-4 justify-center items-center"
-          >
-            <div class="flex flex-col">
-              <label for="Email">Email</label>
-              <input
-              id="signUpEmail"
-                type="text"
-                class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64"
-                placeholder="Email"
-              />
-            </div>
+    <div class="modal fade" id="SignUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered flex items-center justify-center flex-col gap-4" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-5xl text-center ml-40" id="exampleModalLongTitle"
+                        style="color: #2dc18c">
+                        Sign Up
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body flex flex-col gap-4 justify-center items-center">
+                    <div class="flex flex-col">
+                        <label for="Email">Email</label>
+                        <input id="signUpEmail" type="text"
+                            class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64" placeholder="Email" />
+                    </div>
 
-            <div class="flex flex-col">
-              <label for="Password">Password</label>
-              <input
-              id="signUpPassword"
-                type="password"
-                class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64"
-                placeholder="********"
-              />
-            </div>
+                    <div class="flex flex-col">
+                        <label for="Password">Password</label>
+                        <input id="signUpPassword" type="password"
+                            class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64" placeholder="********" />
+                    </div>
 
-            <p>Already have an account?<button style="color: #2dc18c;" onclick="redirectToLogin()">Log in</button></p>
-          </div>
-          <div class="flex justify-center items-center">
-            <button
-              type="button"
-              class="btn btn-primary btn-lg w-64 mb-10"
-              data-dismiss="modal"
-              onclick="signUp()"
-            >
-              Sign Up
-            </button>
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-          </div>
+                    <p>Already have an account?<button class="mx-1" style="color: #2dc18c;" onclick="redirectToLogin()">Log
+                            in</button></p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <button type="button" class="btn btn-primary btn-lg w-64 mb-10" data-dismiss="modal"
+                        onclick="signUp()">
+                        Sign Up
+                    </button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
 
 
     <!-- log in modal -->
-    <div
-    class="modal fade"
-    id="SignIn"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true"
-  >
-    <div
-      class="modal-dialog modal-dialog-centered flex items-center justify-center flex-col gap-4"
-      role="document"
-    >
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3
-            class="modal-title text-5xl text-center ml-40"
-            id="exampleModalLongTitle"
-            style="color: #2dc18c"
-          >
-            Log In
-          </h3>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div
-          class="modal-body flex flex-col gap-4 justify-center items-center"
-        >
-          <div class="flex flex-col">
-            <label for="Email">Email</label>
-            <input
-            id="signInEmail"
-              type="text"
-              class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64"
-              placeholder="Email"
-            />
-          </div>
+    <div class="modal fade" id="SignIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered flex items-center justify-center flex-col gap-4" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-5xl text-center ml-40" id="exampleModalLongTitle"
+                        style="color: #2dc18c">
+                        Log In
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body flex flex-col gap-4 justify-center items-center">
+                    <div class="flex flex-col">
+                        <label for="Email">Email</label>
+                        <input id="signInEmail" type="text"
+                            class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64" placeholder="Email" />
+                    </div>
 
-          <div class="flex flex-col">
-            <label for="Password">Password</label>
-            <input
-            id="signInPassword"
-              type="password"
-              class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64"
-              placeholder="********"
-            />
-          </div>
+                    <div class="flex flex-col">
+                        <label for="Password">Password</label>
+                        <input id="signInPassword" type="password"
+                            class="p-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64" placeholder="********" />
+                    </div>
 
-          <p>Need an account?<button style="color: #2dc18c;" onclick="clickSignUpButton()">Sign Up</button></p>
+                    <p>Need an account?<button class="mx-1"  style="color: #2dc18c;" onclick="clickSignUpButton()">Sign Up</button>
+                    </p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <button type="button" class="btn btn-primary btn-lg w-64 mb-10" data-dismiss="modal"
+                        onclick="login()">
+                        Log in
+                    </button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
         </div>
-        <div class="flex justify-center items-center">
-          <button
-            type="button"
-            class="btn btn-primary btn-lg w-64 mb-10"
-            data-dismiss="modal"
-            onclick="login()"
-          >
-            Log in
-          </button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        </div>
-      </div>
     </div>
-  </div>
 
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
     <script src="./index.js"></script>
-  </body>
+</body>
+
 </html>

@@ -7,31 +7,55 @@
     <link rel="icon" href="./images/icon.png" type="image/x-icon">
 
     <title>Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- tailwind  -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
 
+
+
+
+    <!-- font aweesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .close {
+            right: 0;
+            position: absolute;
+            background-color: red;
+            color: white;
+            font-size: 10px;
+            padding: 2px 7px;
+            border: none;
+            border-radius: 50%;
+        }
+    </style>
 
 </head>
 
 <body>
-    <header class="flex justify-between items-center py-5 px-20 bg-gray-100">
-        <div class="flex justify-center items-center gap-1">
-            <img src="./images/icon.png" alt="" class="w-10 h-10 mt-2 object-contain">
-            <h1 class="text-2xl sm:text-4xl " style="color: #2DC18C;">Enhancv</h1>
-        </div>
+    <header class="header">
+        <nav class="navbar">
+            <div class="flex justify-center items-center gap-1">
+                <img src="./images/icon.png" alt="" class="w-10 h-10 object-contain" />
+                <h1 class="text-2xl sm:text-4xl" style="color: #2dc18c">ResumeAI</h1>
+            </div>
 
-
-        <div>
-            <i class="fa-solid fa-bars text-black text-3xl"></i>
-        </div>
+            <ul class="nav-menu">
+               
+                <li class="nav-item">
+                    <a href="./index.html"><button id="downloadBtn" class="bn632-hover bn22 w-40 mx-4 py-2 text-2xl h-14" onclick="downloadCV();">Log out</button></a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
     </header>
+
     <!-- <hr class="mt-7"> -->
 
     <div class="w-full">
@@ -108,43 +132,47 @@
 
             <!-- ACHIEVEMENTS -->
             <h1 class="text-white p-2 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">ACHIEVEMENTS</h1>
-            <div class="w-full p-2 border border-gray-300 flex flex-col gap-10 p-10">
-                <div class="flex flex-col gap-10 lg:flex-row">
-                    <div class="flex flex-col">
-                        <label class="text-black font-bold">Title</label>
-                        <input id="achievementTitle" type="text"
-                            class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
+            <div id="achievementsContainer">
+                <div class="w-full p-2 border border-gray-300 flex flex-col gap-10 p-10">
+                    <div class="flex flex-col gap-10 lg:flex-row">
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">Title</label>
+                            <input id="achievementTitle" type="text"
+                                class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
+                        </div>
+    
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">Description</label>
+                            <input id="achievementDescription" type="text"
+                                class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
+                        </div>
                     </div>
-
-                    <div class="flex flex-col">
-                        <label class="text-black font-bold">Description</label>
-                        <input id="achievementDescription" type="text"
-                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
-                    </div>
+    
                 </div>
-
             </div>
-
+            <button id="addMoreSkills" onclick="addMoreAchievements()"
+            class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">+</button>
 
             <!-- EXPERIENCE -->
 
             <h1 class="text-white p-2 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">EXPERIENCE</h1>
+           <div id="experienceContainer">
             <div class="w-full p-2 border border-gray-300 flex flex-col gap-10 p-10">
                 <div class="flex flex-col gap-10 lg:flex-row">
                     <div class="flex flex-col">
                         <label class="text-black font-bold">Title</label>
-                        <input id="achievementTitle" type="text"
+                        <input id="experienceTitle" type="text"
                             class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
                     </div>
                     <div class="flex flex-col">
                         <label class="text-black font-bold">Company/Organization</label>
-                        <input id="achievementDescription" type="text"
+                        <input id="organization" type="text"
                             class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
                     </div>
 
                     <div class="flex flex-col">
                         <label class="text-black font-bold">Location</label>
-                        <input id="achievementDescription" type="text"
+                        <input id="location" type="text"
                             class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
                     </div>
                 </div>
@@ -158,7 +186,7 @@
 
                     <div class="flex flex-col">
                         <label class="text-black font-bold">End Date</label>
-                        <input id="endDate" type="text"
+                        <input id="endDate" type="date"
                             class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64"
                             placeholder="e.g. Accountant">
                     </div>
@@ -171,48 +199,110 @@
                     </div>
                 </div>
             </div>
+           </div>
+            <button id="addMoreSkills" onclick="addMoreExperience()"
+            class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">+</button>
+
+
+            <!-- EDUCATIONS -->
+
+            <h1 class="text-white p-2 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">EDUCATIONS</h1>
+            <div id="EducationContainer">
+                <div class="w-full p-2 border border-gray-300 flex flex-col gap-10 p-10">
+                    <div class="flex flex-col gap-10 lg:flex-row">
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">School</label>
+                            <input id="schoolName" type="text"
+                                class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">Degree</label>
+                            <input id="degree" type="text"
+                                class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
+                        </div>
+    
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">City</label>
+                            <input id="schoolLocation" type="text"
+                                class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
+                        </div>
+                    </div>
+    
+                    <div class="flex flex-col gap-10 lg:flex-row">
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">Start Date</label>
+                            <input id="schoolStartDate" type="date"
+                                class="p-2 border border-gray-300 rounded mt-2 focus:outline-none focus:border-blue-500 w-78 sm:w-96 lg:w-64">
+                        </div>
+    
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">End Date</label>
+                            <input id="schoolEndDate" type="date"
+                                class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64"
+                                placeholder="e.g. Accountant">
+                        </div>
+    
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">Description</label>
+                            <input id="schoolDescription" type="text"
+                                class="p-2 mt-2 border border-gray-300 rounded w-78 sm:w-96 lg:w-64"
+                                placeholder="e.g. Lake Street-23">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="addMoreSkills" onclick="addMoreEducation()"
+            class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">+</button>
 
             <!-- PROJECTS -->
 
             <h1 class="text-white p-2 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">PROJECTS</h1>
-            <div class="w-full p-2 border border-gray-300 flex flex-col p-10 gap-10">
-                <div class="flex flex-col gap-10 lg:flex-row">
-                    <div class="flex flex-col">
-                        <label class="text-black font-bold">Project Name</label>
-                        <input id="projectName" type="text"
-                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
+            <div id="ProjectContainer">
+                <div class="w-full p-2 border border-gray-300 flex flex-col p-10 gap-10" >
+                    <div class="flex flex-col gap-10 lg:flex-row">
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">Project Name</label>
+                            <input id="projectNameInput" type="text"
+                                class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
+                        </div>
+    
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">Project link</label>
+                            <input id="projectLinkInput" type="text"
+                                class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
+                        </div>
+    
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold">Description</label>
+                            <input id="projectDescriptionInput" type="text"
+                                class="p-2 mt-2 border border-gray-300 rounded  w-78 sm:w-96 lg:w-64">
+                        </div>
                     </div>
-
-                    <div class="flex flex-col">
-                        <label class="text-black font-bold">Project link</label>
-                        <input id="projectLink" type="text"
-                            class="p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label class="text-black font-bold">Description</label>
-                        <input id="projectDescription" type="text"
-                            class="p-2 mt-2 border border-gray-300 rounded  w-78 sm:w-96 lg:w-64">
-                    </div>
-                </div>
-
+    
             </div>
-
+            </div>
+            <button id="addMoreSkills" onclick="addMoreProjects()"
+            class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">+</button>
 
             <!-- SKILLS -->
 
-            <h1 class="text-white p-2 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">SKILLS</h1>
-            <div class="w-full p-2 border border-gray-300 flex flex-col gap-10 p-10">
-                <div class="flex">
-                    <div class="flex flex-col">
-                        <label class="text-black font-bold mb-2">Skill</label>
-                        <input id="projectName" type="text"
-                            class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+            <h1 class="text-white p-1 text-xl font-bold mb-4 mt-10" style="background-color: #2DC18C;">SKILLS</h1>
+            <div id="skillsContainer">
+                <div class="w-full border mb-3 border-gray-300 flex flex-col gap-10 p-5">
+                    <div class="flex relative">
+                        <div class="flex flex-col">
+                            <label class="text-black font-bold mb-2">Skill</label>
+
+                            <input id="skill" type="text"
+                                class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
+                        </div>
+
                     </div>
 
                 </div>
-
             </div>
+            <button id="addMoreSkills" onclick="addMoreSkills()"
+                class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">+</button>
 
 
         </div>
@@ -221,12 +311,18 @@
 
         <div id="rightContent"
             class="w-9/12 m-auto  flex flex-col lg:flex-row border border-gray-300 rounded mt-20 mb-20">
-            <div class="text-white w-96 bg-green-900 p-4 flex flex-col justify-center items-center">
+            <div class="text-white w-full bg-green-900 p-4 flex flex-col justify-center items-center sm:w-full lg:w-2/3">
                 <div id="rightImage" class="w-32 h-32 mt-10 mb-10 bg-green-900 rounded">
                 </div>
-                <p id="AboutText" class="text-white text-xl"></p>
+                <div id="nameText" class="text-white text-xl"></div>
+
                 <h1 class="text-3xl font-bold">About</h1>
-                <h1 class="text-3xl font-bold mt-7">Skills</h1>
+                <p id="aboutText" class="text-white text-xl"></p>
+
+
+                <h1 class="text-3xl font-bold my-7">Skills</h1>
+                <div id="skillText" class="text-white text-xl"></div>
+
             </div>
             <div class="w-full text-black px-10 py-5">
                 <h1 class="text-2xl font-bold">ACHIEVEMENTS</h1>
@@ -237,35 +333,57 @@
 
                 <h1 class="text-2xl font-bold">EDUCATIONS</h1>
                 <hr style="border: 1px solid rgba(128, 128, 128, 0.597)" class="mt-2">
-                <p id="EducaText" class="text-xl mb-10"></p>
+                <div id="EducaText" class="text-xl mb-10"></div>
 
 
                 <h1 class="text-2xl font-bold">EXPERIENCES</h1>
                 <hr style="border: 1px solid rgba(128, 128, 128, 0.597)" class="mt-2">
-                <p id="ExperiText" class=" text-xl mb-10"></p>
+                <div id="ExperiText" class=" text-xl mb-10"></div>
 
 
 
                 <h1 class="text-2xl font-bold">PROJECTS</h1>
                 <hr style="border: 1px solid rgba(128, 128, 128, 0.597)" class="mt-2">
-                <p id="ProjeText" class="text-xl mb-10"></p>
+                <div id="ProjectText" class="text-xl mb-10"></div>
 
             </div>
         </div>
 
 
     </div>
-    <div class="mt-4 flex justify-center mb-20">
-        <button id="printBtn" class="mr-4 px-4 py-2 bg-blue-500 text-white rounded">Print</button>
-        <button id="downloadBtn" class="px-4 py-2 bg-green-500 text-white rounded" onclick="downloadCode();">Download
-            PDF</button>
+    <div class="w-full mt-4 flex justify-center flex-wrap mb-20">
+
+        <a href="#"><button id="printBtn" class="bn632-hover bn22 h-14 py-2 text-2xl">Print</button></a>
+        
+        
+        <a href="#"><button id="downloadBtn" class="bn632-hover bn22 w-60 mx-4 py-2 text-2xl h-14" onclick="downloadCV();">Download CV</button></a>
+
+        
+        <a href="#"><button id="downloadBtn" class="bn632-hover bn22 w-64 mx-1 py-2 text-2xl h-14" onclick="downloadCV();">Job Recommendation</button></a>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./buildResume.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> -->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ -->
+
+    <script src="./index.js"></script>
 
 
-    <script src="./buildResume.js">
-
-    </script>
 
 </body>
 
