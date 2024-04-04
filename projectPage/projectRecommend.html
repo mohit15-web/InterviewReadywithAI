@@ -23,80 +23,83 @@
 
 
 </head>
-<div class="context">
-    <h1 class="text-4xl my-3 font-bold mt-5 text-black mb-4">Projects Based on your skills are here </h1>
 
-    <div id="projectRecommendation" class="text-white text-3xl">
-        <div class="loading-container">
-            <div class="loading"></div>
-            <div id="loading-text">loading</div>
+<body>
+
+    <div class="context">
+        <h1 class="text-4xl md:2xl my-3 font-bold mt-5 text-black mb-4">Projects Based on your skills are here </h1>
+
+        <div id="projectRecommendation" class="text-white text-3xl">
+            <div class="loading-container">
+                <div class="loading"></div>
+                <div id="loading-text">loading</div>
+            </div>
+            <!-- <button id="jobs">job search</button> -->
         </div>
-        <!-- <button id="jobs">job search</button> -->
+
+    </div>
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
 
-</div>
-<div class="area">
-    <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div>
 
 
-
-<script type="importmap">
+    <script type="importmap">
         {
           "imports": {
             "@google/generative-ai": "https://esm.run/@google/generative-ai"
           }
         }
       </script>
-<script type="module">
-    import { GoogleGenerativeAI } from "@google/generative-ai";
-    const API_KEY = "AIzaSyAYhghPB47muOGdbJ-p26A7AUxRSxQ94cw";
-    const md = window.markdownit();
-    const genAI = new GoogleGenerativeAI(API_KEY);
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+        const API_KEY = "AIzaSyAYhghPB47muOGdbJ-p26A7AUxRSxQ94cw";
+        const md = window.markdownit();
+        const genAI = new GoogleGenerativeAI(API_KEY);
 
-    let text;
+        let text;
 
-    const urlParams = new URLSearchParams(window.location.search);
+        const urlParams = new URLSearchParams(window.location.search);
 
-    const projects = urlParams.get('project');
+        const skill = urlParams.get('project');
 
-    console.log(projects);
+        console.log(skill);
 
-    async function run() {
-        let projectRecommendation = document.getElementById("projectRecommendation");
-        // For text-only input, use the gemini-pro model
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        async function run() {
+            let projectRecommendation = document.getElementById("projectRecommendation");
+            // For text-only input, use the gemini-pro model
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-        const prompt = "Projects based on " + projects + " are: ";
+            const prompt = "Projects based on " + skill + " are and also give some link for refrences link like after clicking on them we should indirect there: ";
 
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        text = response.text();
-        projectRecommendation.innerHTML = "";
-        projectRecommendation.innerHTML += md.render(text);
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            text = response.text();
+            projectRecommendation.innerHTML = "";
+            projectRecommendation.innerHTML += md.render(text);
 
-        console.log(text);
-    }
-    window.addEventListener("load", () => {
-        // window.location.href="./jobs.html";
-        // document.getElementById('jobsearch').style.display = "block"
-        run()
-        console.log("html")
-        // document.getElementById('abhi').innerHTML=text;
-    })
+            console.log(text);
+        }
+        window.addEventListener("load", () => {
+            // window.location.href="./jobs.html";
+            // document.getElementById('jobsearch').style.display = "block"
+            run()
+            console.log("html")
+            // document.getElementById('abhi').innerHTML=text;
+        })
 
-</script>
+    </script>
 </body>
 
 </html>

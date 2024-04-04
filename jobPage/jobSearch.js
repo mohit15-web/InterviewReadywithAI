@@ -1,9 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 
-// Get the value of the 'skill' parameter from the URL
 const skillValue = urlParams.get('skill');
 
-// Now you have the skill value from the URL
 console.log(skillValue);
 
 const url =
@@ -28,7 +26,6 @@ async function fetchData() {
 
       jobListDiv.innerHTML = "";
 
-      // Iterate over each job and display its information in the div
       jobs.forEach((job) => {
         const jobTitle = job.job_title;
         const jobState = job.job_state;
@@ -39,24 +36,22 @@ async function fetchData() {
 
         // Append job information to jobListDiv
         jobListDiv.innerHTML += `
-                <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center">
-                    <div class="flex">
-                        <img src="${jobLogo}" alt="" width="80">
-                        <div class="px-2">
-                            <p class="text-xl mb-2">
-                                ${jobTitle}
-                            </p>
-                            <h1 class="text-2xl font-bold">
-                            <a href="${jobApply}" target="_blank">Apply Now</a>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-end">
-                        <p class="text-2xl mb-2"><i class="fa-solid fa-location-dot"></i> ${jobCountry} , ${jobState}</p>
-                        <p class="text-lg">${jobType}</p>
-                    </div>
+        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center flex-wrap flex-wrap">
+            <div class="flex py-5 flex-col gap-5 md:flex-row lg:flex-row 2xl:flex-row">
+                <img src="${jobLogo}" alt="" width="80" class="mr-2">
+                <div>
+                    <p class="text-xl mb-2">${jobTitle}</p>
+                    <h1 class="text-2xl font-bold">
+                        <a href="${jobApply}" target="_blank" class="text-blue-500 hover:underline">Apply Now</a>
+                    </h1>
                 </div>
-                `;
+            </div>
+            <div class="flex flex-col justify-end text-right">
+                <p class="text-2xl mb-2"><i class="fa-solid fa-location-dot"></i> ${jobCountry} , ${jobState}</p>
+                <p class="text-lg">${jobType}</p>
+            </div>
+        </div>
+    `;
       });
     } else {
       console.error("Error: Failed to fetch jobs data.");

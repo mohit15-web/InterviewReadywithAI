@@ -13,11 +13,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
-
+    <style>
+        @media screen and (max-width: 768px) {
+            .jobInput {
+                width: 200px;
+            }
+        }
+    </style>
 
 </head>
 
-<body class="bg-gray-100 w-full px-60 py-10">
+<body class="bg-gray-100 w-full px-10 py-10 sm:px-10 md:px-20 xl:px-20 2xl:px-60">
     <header>
         <button class="bg-gray-300 py-2 px-4 text-black font-bold text-xl " style="border-radius: 20px;">Job
             Recommendations</button>
@@ -25,16 +31,16 @@
     </header>
 
     <div class="w-full">
-        <input type="text" class="mt-5 p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-64"
-            placeholder="Search jobs" style="width: 1100px; border-radius: 10px;">
+        <!-- <input type="text" class="jobInput mt-5 p-2 border border-gray-300 rounded mt-2"
+            placeholder="Search jobs" style="width: 1100px; border-radius: 10px;"> -->
     </div>
 
     <h1 class="text-3xl my-3 font-bold mt-5">Jobs Based on your skills are here </h1>
     <p class="mb-10">12 Recommendations for you!</p>
 
     <main id="jobList">
-        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center">
-            <div class="flex">
+        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center flex-wrap flex-wrap">
+            <div class="flex py-5 flex-col gap-5 md:flex-row lg:flex-row 2xl:flex-row">
                 <img src="../images/job1.png" alt="">
                 <div class="px-2">
                     <p class="text-xl mb-2">
@@ -50,8 +56,8 @@
                 <p class="text-lg">Remote</p>
             </div>
         </div>
-        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center">
-            <div class="flex">
+        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center flex-wrap">
+            <div class="flex py-5 flex-col gap-5 md:flex-row lg:flex-row 2xl:flex-row">
                 <img src="../images/job2.png" alt="" width="80">
                 <div class="px-2">
                     <p class="text-xl mb-2">
@@ -67,8 +73,8 @@
                 <p class="text-lg">Remote</p>
             </div>
         </div>
-        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center">
-            <div class="flex">
+        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center flex-wrap">
+            <div class="flex py-5 flex-col gap-5 md:flex-row lg:flex-row 2xl:flex-row">
                 <img src="../images/job5.png" alt="" width="80">
                 <div class="px-2">
                     <p class="text-xl mb-2">
@@ -84,8 +90,8 @@
                 <p class="text-lg">Remote</p>
             </div>
         </div>
-        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center">
-            <div class="flex">
+        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center flex-wrap">
+            <div class="flex py-5 flex-col gap-5 md:flex-row lg:flex-row 2xl:flex-row">
                 <img src="../images/job3.png" alt="" width="80">
                 <div class="px-2">
                     <p class="text-xl mb-2">
@@ -102,8 +108,8 @@
             </div>
         </div>
 
-        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center">
-            <div class="flex">
+        <div class="w-full p-5 border border-gray-300 rounded my-6 flex justify-between items-center flex-wrap">
+            <div class="flex py-5 flex-col gap-5 md:flex-row lg:flex-row 2xl:flex-row">
                 <img src="../images/job4.png" alt="" width="80">
                 <div class="px-2">
                     <p class="text-xl mb-2">

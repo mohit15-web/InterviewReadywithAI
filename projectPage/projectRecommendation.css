@@ -261,7 +261,7 @@ body {
   animation: loading-text-opacity 2s linear 0s infinite normal;
   color: white;
   font-family: "Helvetica Neue, " Helvetica ", " "arial";
-  font-size: 10px;
+  font-size: 18px;
   font-weight: bold;
   margin-top: 35px;
   opacity: 0;
@@ -286,11 +286,19 @@ body {
 
 .context {
   width: 100%;
+  height: 100vh;
   position: absolute;
   padding: 5rem 10rem 1rem 15rem;
   /* display: flex;
   flex-direction: column; */
   /* top:50vh; */
+}
+
+
+@media (max-width: 1200px) {
+  .context {
+    padding: 5rem 5rem 3rem 5rem;
+  }
 }
 
 .context h1 {
@@ -415,4 +423,31 @@ body {
     opacity: 0;
     border-radius: 50%;
   }
+}
+
+/* projectRecommendation.css */
+#projectRecommendation {
+  font-size: 20px;
+  line-height: 1.5;
+  color: white;
+}
+
+#projectRecommendation h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+#projectRecommendation p {
+  margin: 15px 0;
+}
+
+#projectRecommendation a {
+  color: white;
+  text-decoration: underline;
+}
+
+#projectRecommendation a:hover {
+  color: gray;
 }
