@@ -11,7 +11,7 @@ function login() {
   if (email === "" || password === "") {
     alert("Please fill in all fields.");
   }else if (email === storedEmail && password === storedPassword) {
-    window.location.href = "buildResume.html";
+    window.location.href = "./resumePage/buildResume.html";
   } else {
     alert("Invalid email or password. Please sign up first.");
   }
@@ -32,7 +32,7 @@ function signUp() {
     
 
 
-  window.location.href = "buildResume.html";
+  window.location.href = "./resumePage/buildResume.html";
 }
 
 function clickSignUpButton() {
@@ -58,6 +58,7 @@ hamburger.addEventListener("click", mobileMenu);
 
 function mobileMenu() {
   hamburger.classList.toggle("active");
+  // hamburger.classList.add("z-10");
   navMenu.classList.toggle("active");
 }
 

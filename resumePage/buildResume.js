@@ -1,4 +1,6 @@
 let i = 1;
+let jobSerachanchor = document.getElementById("jobSerachanchor");
+let projectSerachanchor = document.getElementById("projectSerachanchor");
 
 const firstNameInput = document.getElementById("firstName");
 const middleNameInput = document.getElementById("middleName");
@@ -125,42 +127,57 @@ const skillText = document.getElementById("skillText");
 const skill = document.getElementById("skill");
 skill.addEventListener("input", updateSkillText);
 
-function updateSkillText(i, value) {
-  const skill2 = document.getElementsByClassName(`${i}`);
-  skill2.innerText = value;
-}
+function updateSkillText(i) {
+  const skill2 = document.createElement("h2");
+  skill2.classList.add(`a${i}`);
+  // skill2.classList.add("bor");
+  skillText.appendChild(skill2);
 
+  document.getElementById(`${i}`).addEventListener("input", function (e) {
+    let skill2 = document.querySelector(`.a${i}`);
+    console.log(skillText);
+    skill2.innerText = e.target.value;
+    jobSerachanchor.href = `../jobPage/jobSearch.html?skill=${e.target.value}`;
+    projectSerachanchor.href = `../projectPage/projectRecommend.html?project=${e.target.value}`;
+    console.log(projectSerachanchor);
+  });
+
+  let btns = document.getElementsByClassName("closeBtn");
+
+  for (let j = 0; j < btns.length; j++) {
+    btns[j].addEventListener("click", (e) => {
+      e.target.parentNode.parentNode.parentNode.style.display = "none";
+      if (btns[j].classList.contains(`${i}`)) {
+        skill2.style.display = "none";
+      }
+    });
+  }
+}
 
 function addMoreSkills() {
   const skillContainer = document.getElementById("skillsContainer");
   const skill = document.createElement("div");
   skill.className =
-    "skillDiv w-full mb-3 border border-gray-300 flex flex-col gap-10 p-5";
+    "skillDiv w-full mb-3 border h-0 transition ease-in duration-500 border-gray-300 flex flex-col gap-10 p-5";
   skill.innerHTML = `
   <div class="flex relative">
     <div class="flex flex-col ">
       <label class="text-black font-bold mb-2">Skill</label>
-      <button class="close" id="closeBtn" onclick="removeSkill()" aria-hidden="true">X</button>
+      <button class="close closeBtn ${i + 1}" aria-hidden="true">X</button>
 
-      <input id="${i}" type="text"
+      <input id="${i + 1}" type="text"
         class=" p-2 border border-gray-300 rounded mt-2 w-78 sm:w-96 lg:w-80">
     </div>`;
   skillContainer.appendChild(skill);
 
+  setTimeout(() => {
+    skill.classList.add("h-32");
+  }, 0);
+  var idx = i + 1;
 
-  const skill2 = document.createElement("h2");
-  skill2.classList.add(`${i}`);
-  skillText.append(skill2);
-  document
-    .getElementById(`${i}`)
-    .addEventListener("input", function (e) {
-    console.log("btn clicked");
-      updateSkillText(i, e.target.value);
-    });
-
+  updateSkillText(idx);
   i++;
 }
-
 
 function updateRightImage(event) {
   const file = event.target.files[0];
@@ -176,26 +193,18 @@ function updateRightImage(event) {
   }
 }
 
-// download pdf
-function downloadCV() {
-  var element = document.getElementById("rightContent");
-  var opt = {
-    margin: 1,
-    filename: "myfile.pdf",
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-  };
+function generatePDF() {
+  const element = document.getElementById("preview-sc");
 
-  // New Promise-based usage:
-  html2pdf().set(opt).from(element).save();
+  html2pdf().from(element).save("CV.pdf");
+}
 
-  // Old monolithic-style usage:
-  html2pdf(element, opt);
+function downloadCode() {
+  generatePDF();
 }
 
 document.getElementById("printBtn").addEventListener("click", function () {
-  var contentToPrint = document.getElementById("rightContent").innerHTML;
+  var contentToPrint = document.getElementById("preview-sc").innerHTML;
   var originalBodyContent = document.body.innerHTML;
   document.body.innerHTML = contentToPrint;
   window.print();
@@ -203,15 +212,6 @@ document.getElementById("printBtn").addEventListener("click", function () {
 });
 
 // const skills = []
-
-
-function removeSkill() {
-  const skills = document.querySelectorAll(".skillDiv");
-
-  skills.forEach((skill) => {
-    skill.style.display = "none";
-  });
-}
 
 function addMoreProjects() {
   const skillContainer = document.getElementById("ProjectContainer");
@@ -412,3 +412,5 @@ function removeAchievement() {
     achievement.style.display = "none";
   });
 }
+
+addMoreSkills();
