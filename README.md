@@ -21,6 +21,7 @@ This project is a web application for creating professional resumes. It allows u
 - JavaScript (for dynamic functionality)
 - LocalStorage (for saving resume data locally)
 - Third-party libraries: [JSPDF](https://github.com/parallax/jsPDF) for generating PDF documents
+- Third-party libraries: [flickity](https://flickity.metafizzy.co/)
 
 ## 🛠️ Installation
 1. Clone the repository:
