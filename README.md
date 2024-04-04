@@ -1,7 +1,12 @@
 # 📄 Resume Builder Website
 
 ## 🌟 Overview
-This project is a web application for creating professional resumes. It allows users to input their personal, educational, and professional details in a user-friendly interface and generates a formatted resume document.
+This project is a web application for creating professional resumes. It allows users to input their personal, educational, and professional details in a user-friendly interface and generates a formatted resume document,after generating resume you can download and print it , also you can see job suggestions and project suggestions based on your skills.
+
+
+## Demo 🎥
+
+[Hosted Link](https://mohit15-web.github.io/ResumeBuilder/)
 
 ## ✨ Features
 - User-friendly interface for inputting resume details
@@ -16,6 +21,7 @@ This project is a web application for creating professional resumes. It allows u
 - JavaScript (for dynamic functionality)
 - LocalStorage (for saving resume data locally)
 - Third-party libraries: [JSPDF](https://github.com/parallax/jsPDF) for generating PDF documents
+- Third-party libraries: [flickity](https://flickity.metafizzy.co/)
 
 ## 🛠️ Installation
 1. Clone the repository:
