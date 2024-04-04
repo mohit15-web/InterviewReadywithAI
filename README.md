@@ -1,7 +1,7 @@
 # 📄 Resume Builder Website
 
 ## 🌟 Overview
-This project is a web application for creating professional resumes. It allows users to input their personal, educational, and professional details in a user-friendly interface and generates a formatted resume document.
+This project is a web application for creating professional resumes. It allows users to input their personal, educational, and professional details in a user-friendly interface and generates a formatted resume document,after generating resume you can download and print it , also you can see job suggestions and project suggestions based on your skills.
 
 
 ## Demo 🎥
