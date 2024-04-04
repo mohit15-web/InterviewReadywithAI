@@ -32,7 +32,7 @@ function signUp() {
     
 
 
-  window.location.href = "./resumePage/buildResume.html";
+  // window.location.href = "./resumePage/buildResume.html";
 }
 
 function clickSignUpButton() {
