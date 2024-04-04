@@ -6,7 +6,7 @@ This project is a web application for creating professional resumes. It allows u
 
 ## Demo 🎥
 
-[Hosted Link](https://mohit15-web.github.io/GeeksterMon/)
+[Hosted Link](https://mohit15-web.github.io/ResumeBuilder/)
 
 ## ✨ Features
 - User-friendly interface for inputting resume details
